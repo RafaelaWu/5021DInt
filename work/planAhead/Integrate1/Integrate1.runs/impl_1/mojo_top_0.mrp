@@ -8,23 +8,23 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Dec 08 05:00:06 2017
+Mapped Date    : Fri Dec 08 08:40:09 2017
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    6
 Slice Logic Utilization:
-  Number of Slice Registers:                   236 out of  11,440    2%
-    Number used as Flip Flops:                 236
+  Number of Slice Registers:                   244 out of  11,440    2%
+    Number used as Flip Flops:                 244
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        388 out of   5,720    6%
+  Number of Slice LUTs:                        389 out of   5,720    6%
     Number used as logic:                      377 out of   5,720    6%
-      Number using O6 output only:             184
+      Number using O6 output only:             173
       Number using O5 output only:             161
-      Number using O5 and O6:                   32
+      Number using O5 and O6:                   43
       Number used as ROM:                        0
     Number used as Memory:                       3 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -33,19 +33,19 @@ Slice Logic Utilization:
         Number using O6 output only:             3
         Number using O5 output only:             0
         Number using O5 and O6:                  0
-    Number used exclusively as route-thrus:      8
-      Number with same-slice register load:      0
+    Number used exclusively as route-thrus:      9
+      Number with same-slice register load:      1
       Number with same-slice carry load:         8
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   128 out of   1,430    8%
-  Number of MUXCYs used:                       188 out of   2,860    6%
-  Number of LUT Flip Flop pairs used:          393
-    Number with an unused Flip Flop:           171 out of     393   43%
-    Number with an unused LUT:                   5 out of     393    1%
-    Number of fully used LUT-FF pairs:         217 out of     393   55%
-    Number of unique control sets:              14
+  Number of occupied Slices:                   131 out of   1,430    9%
+  Number of MUXCYs used:                       196 out of   2,860    6%
+  Number of LUT Flip Flop pairs used:          394
+    Number with an unused Flip Flop:           174 out of     394   44%
+    Number with an unused LUT:                   5 out of     394    1%
+    Number of fully used LUT-FF pairs:         215 out of     394   54%
+    Number of unique control sets:              15
     Number of slice register sites lost
       to control set restrictions:              65 out of  11,440    1%
 
@@ -57,7 +57,7 @@ Slice Logic Distribution:
 
 IO Utilization:
   Number of bonded IOBs:                        44 out of     102   43%
-    Number of LOCed IOBs:                       32 out of      44   72%
+    Number of LOCed IOBs:                       40 out of      44   90%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -86,9 +86,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                3.31
 
-Peak Memory Usage:  505 MB
-Total REAL time to MAP completion:  7 secs 
-Total CPU time to MAP completion (all processors):   7 secs 
+Peak Memory Usage:  383 MB
+Total REAL time to MAP completion:  6 secs 
+Total CPU time to MAP completion (all processors):   6 secs 
 
 Table of Contents
 -----------------
@@ -148,16 +148,16 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 44 IOs, 32 are locked
-   and 12 are not locked. If you would like to print the names of these IOs,
+INFO:Place:834 - Only a subset of IOs are locked. Out of 44 IOs, 40 are locked
+   and 4 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  12 block(s) removed
+  13 block(s) removed
   23 block(s) optimized away
-   6 signal(s) removed
+   7 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -169,6 +169,8 @@ The trimmed logic reported below is either:
 
 The signal "spi_miso" is unused and has been removed.
  Unused block "spi_miso_OBUFT" (TRI) removed.
+  The signal "M_x_q[0]" is unused and has been removed.
+   Unused block "XST_GND" (ZERO) removed.
 The signal "spi_channel[3]" is unused and has been removed.
  Unused block "spi_channel_3_OBUFT" (TRI) removed.
 The signal "spi_channel[2]" is unused and has been removed.
@@ -188,7 +190,6 @@ Unused block "spi_miso" (PAD) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
-GND 		XST_GND
 VCC 		XST_VCC
 GND 		myState/bttnpress/button_cond/XST_GND
 VCC 		myState/bttnpress/button_cond/XST_VCC
@@ -208,6 +209,7 @@ GND 		myState/mainState/mypropogater/XST_GND
 VCC 		myState/mainState/mypropogater/XST_VCC
 GND 		myState/mainState/mypropogater/slowclk25/XST_GND
 VCC 		myState/mainState/mypropogater/slowclk25/XST_VCC
+GND 		myState/myalu/XST_GND
 GND 		reset_cond3/XST_GND
 GND 		seg/ctr/XST_GND
 VCC 		seg/ctr/XST_VCC
@@ -229,14 +231,6 @@ Section 6 - IOB Properties
 | button3                            | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLUP   |          |
 | cclk                               | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
-| ext_seven_seg[0]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[1]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[2]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[3]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[4]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[5]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[6]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ext_seven_seg[7]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | high1                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | high2                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | high3                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
@@ -247,6 +241,18 @@ Section 6 - IOB Properties
 | high8                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | high9                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | high10                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[0]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[1]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[2]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[3]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[4]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[5]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[6]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_seg[7]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_sel[0]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_sel[1]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_sel[2]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| io_sel[3]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[0]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[1]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[2]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
@@ -259,10 +265,6 @@ Section 6 - IOB Properties
 | low2                               | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | low3                               | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | rst_n                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
-| seven_seg_sel[0]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| seven_seg_sel[1]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| seven_seg_sel[2]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| seven_seg_sel[3]                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | spi_mosi                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | spi_sck                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | spi_ss                             | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |

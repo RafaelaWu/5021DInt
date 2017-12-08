@@ -27,9 +27,10 @@ module mojo_top (
     output low1,
     output low2,
     output low3,
-    output ext_seven_seg[8],
-    output seven_seg_sel[4]
-    
+    output io_seg[8],
+    output io_sel[4]
+    //output ext_seven_seg[8],
+    //output seven_seg_sel[4]
    // output io_led[3][8]
  //   output io_led[3][8]
   ) {
@@ -86,17 +87,39 @@ module mojo_top (
     low3 = myState.gnd3; //mymain.low3;
    
     //configuring seven seg display
-    ext_seven_seg = seg.seg;
-    seven_seg_sel = ~seg.sel;
-    
-    seg.values[0] = myState.scoreDisplay[0];
-    seg.values[1] = myState.scoreDisplay[1];
-    seg.values[2] = myState.scoreDisplay[2];
-    seg.values[3] = myState.scoreDisplay[3];
-    
+    /*
+    ext_seven_seg0 = seg.seg[0];
+    ext_seven_seg1 = seg.seg[1];
+    ext_seven_seg2 = seg.seg[2];
+    ext_seven_seg3 = seg.seg[3];
+    ext_seven_seg4 = seg.seg[4];
+    ext_seven_seg5 = seg.seg[5];
+    ext_seven_seg6 = seg.seg[6];
+    ext_seven_seg7 = 0;
+    seven_seg_sel0 = ~seg.sel[0];
+    seven_seg_sel1 = ~seg.sel[1];
+    seven_seg_sel2 = ~seg.sel[2];
+    seven_seg_sel3 = ~seg.sel[3];*/
+    /*
+    seven_seg_sel0=0;
+    seven_seg_sel1=1;
+    seven_seg_sel2=1;
+    seven_seg_sel3=1;
+    ext_seven_seg0 = 0;
+    ext_seven_seg1 = 0;
+    ext_seven_seg2 = 0;
+    ext_seven_seg3 = 0;
+    ext_seven_seg4 = 0;
+    ext_seven_seg5 = 1;
+    ext_seven_seg6 = 1;
+    ext_seven_seg7 = 0;
+**/
+    seg.values= myState.scoreDisplay;
+    io_sel = ~seg.sel;
+    io_seg = ~seg.seg;
     led[0] = myState.startbutt;
     led[2:1] = myState.rowresult;
-    led[7:3] = myState.totalScore[5:0];
+    led[7:3] = myState.totalScore[4:0];
     
     
     

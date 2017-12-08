@@ -26,7 +26,7 @@ module state_4 (
     output reg [7:0] totalScore,
     output reg [1:0] rowresult,
     output reg startbutt,
-    output reg [3:0] scoreDisplay
+    output reg [15:0] scoreDisplay
   );
   
   
@@ -71,7 +71,7 @@ module state_4 (
   wire [1-1:0] M_mainState_low1;
   wire [1-1:0] M_mainState_low2;
   wire [1-1:0] M_mainState_low3;
-  wire [2-1:0] M_mainState_rowOn;
+  wire [4-1:0] M_mainState_rowOn;
   reg [1-1:0] M_mainState_rst;
   reg [1-1:0] M_mainState_left2;
   reg [1-1:0] M_mainState_center1;
@@ -157,10 +157,10 @@ module state_4 (
     gnd2 = 1'h1;
     gnd3 = 1'h1;
     M_translater_num = 1'h0;
-    scoreDisplay[3+0-:1] = 1'h0;
-    scoreDisplay[2+0-:1] = 1'h0;
-    scoreDisplay[1+0-:1] = 1'h0;
-    scoreDisplay[0+0-:1] = 1'h0;
+    scoreDisplay[12+3-:4] = 1'h0;
+    scoreDisplay[8+3-:4] = 1'h0;
+    scoreDisplay[4+3-:4] = 1'h0;
+    scoreDisplay[0+3-:4] = 1'h0;
     
     case (M_state_q)
       MAIN_state: begin
@@ -188,10 +188,10 @@ module state_4 (
         end
         result = M_scoreSum_out[0+0-:1] + M_scoreSum_out[1+0-:1] * 2'h2 + M_scoreSum_out[2+0-:1] * 3'h4 + M_scoreSum_out[3+0-:1] * 4'h8 + M_scoreSum_out[4+0-:1] * 5'h10 + M_scoreSum_out[5+0-:1] * 6'h20 + M_scoreSum_out[6+0-:1] * 7'h40 + M_scoreSum_out[7+0-:1] * 8'h80;
         M_translater_num = result;
-        scoreDisplay[3+0-:1] = 4'hb;
-        scoreDisplay[2+0-:1] = M_translater_ascii[2+0-:1];
-        scoreDisplay[1+0-:1] = M_translater_ascii[1+0-:1];
-        scoreDisplay[0+0-:1] = M_translater_ascii[0+0-:1];
+        scoreDisplay[12+3-:4] = 4'hb;
+        scoreDisplay[8+3-:4] = M_translater_ascii[2+0-:1];
+        scoreDisplay[4+3-:4] = M_translater_ascii[1+0-:1];
+        scoreDisplay[0+3-:4] = M_translater_ascii[0+0-:1];
       end
       HALT_state: begin
         row1 = 1'h0;

@@ -2,8 +2,8 @@
 Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o
-mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+E:\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o mojo_top_0.twr
+-v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
 
 Design file:              mojo_top_0_routed.ncd
 Physical constraint file: mojo_top_0.pcf
@@ -28,16 +28,16 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 3297 paths analyzed, 747 endpoints analyzed, 0 failing endpoints
+ 3420 paths analyzed, 778 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   4.498ns.
+ Minimum period is   5.073ns.
 --------------------------------------------------------------------------------
-Slack:                  15.502ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24 (FF)
+Slack:                  14.927ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_0 (FF)
+  Destination:          myState/scoreSum/M_regs_q_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.468ns (Levels of Logic = 1)
-  Clock Path Skew:      0.005ns (0.717 - 0.712)
+  Data Path Delay:      5.023ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.015ns (0.321 - 0.336)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -48,900 +48,33 @@ Slack:                  15.502ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_0 to myState/scoreSum/M_regs_q_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X9Y32.CE       net (fanout=10)       1.168   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X9Y32.CLK      Tceck                 0.365   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[24]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24
+    SLICE_X10Y36.AQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_0
+    SLICE_X11Y47.A2      net (fanout=12)       2.220   M_myState_rowresult[0]
+    SLICE_X11Y47.A       Tilo                  0.259   myState/M_myalu_a[0]
+                                                       myState/Mmux_M_myalu_a11
+    SLICE_X10Y45.AX      net (fanout=1)        0.490   myState/M_myalu_a[0]
+    SLICE_X10Y45.DMUX    Taxd                  0.455   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y44.A2      net (fanout=1)        0.750   myState/M_myalu_alu[3]
+    SLICE_X11Y44.CLK     Tas                   0.373   M_myState_totalScore[3]
+                                                       myState/Mmux_M_scoreSum_data41
+                                                       myState/scoreSum/M_regs_q_3
     -------------------------------------------------  ---------------------------
-    Total                                      4.468ns (1.149ns logic, 3.319ns route)
-                                                       (25.7% logic, 74.3% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.528ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_21 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.442ns (Levels of Logic = 2)
-  Clock Path Skew:      0.005ns (0.717 - 0.712)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_21
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y32.A6       net (fanout=10)       1.168   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y32.CLK      Tas                   0.339   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_21_rstpot
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_21
-    -------------------------------------------------  ---------------------------
-    Total                                      4.442ns (1.123ns logic, 3.319ns route)
-                                                       (25.3% logic, 74.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.569ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.408ns (Levels of Logic = 1)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X9Y31.CE       net (fanout=10)       1.108   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X9Y31.CLK      Tceck                 0.365   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[20]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20
-    -------------------------------------------------  ---------------------------
-    Total                                      4.408ns (1.149ns logic, 3.259ns route)
-                                                       (26.1% logic, 73.9% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.600ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.370ns (Levels of Logic = 2)
-  Clock Path Skew:      0.005ns (0.717 - 0.712)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X4Y28.B6       net (fanout=29)       1.936   M_myState_startbutt
-    SLICE_X4Y28.B        Tilo                  0.254   myState/mainState/mypropogater/randomizer/M_numb_gen_num[2]
-                                                       myState/mainState/mypropogater/rowCtr/Mcount_M_ctr_q_val1_1
-    SLICE_X9Y32.A3       net (fanout=18)       1.282   myState/mainState/mypropogater/Mcount_M_ctr_q_val1
-    SLICE_X9Y32.CLK      Tas                   0.373   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[24]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/Mmux_M_w_d171
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_24
-    -------------------------------------------------  ---------------------------
-    Total                                      4.370ns (1.152ns logic, 3.218ns route)
-                                                       (26.4% logic, 73.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.602ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_16 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.363ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_16
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.314   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_16
-    -------------------------------------------------  ---------------------------
-    Total                                      4.363ns (1.299ns logic, 3.064ns route)
-                                                       (29.8% logic, 70.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.625ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.340ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_19
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.291   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    -------------------------------------------------  ---------------------------
-    Total                                      4.340ns (1.276ns logic, 3.064ns route)
-                                                       (29.4% logic, 70.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.627ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_18 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.338ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_18
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.289   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_18
-    -------------------------------------------------  ---------------------------
-    Total                                      4.338ns (1.274ns logic, 3.064ns route)
-                                                       (29.4% logic, 70.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.645ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.320ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_17
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.271   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    -------------------------------------------------  ---------------------------
-    Total                                      4.320ns (1.256ns logic, 3.064ns route)
-                                                       (29.1% logic, 70.9% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.799ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond2/M_ctr_q_15 (FF)
-  Destination:          myState/bttnpress/button_cond2/M_ctr_q_3 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.158ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.008ns (0.196 - 0.204)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond2/M_ctr_q_15 to myState/bttnpress/button_cond2/M_ctr_q_3
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y19.DQ      Tcko                  0.476   myState/M_ctr_q_15_0
-                                                       myState/bttnpress/button_cond2/M_ctr_q_15
-    SLICE_X13Y18.C2      net (fanout=3)        1.462   myState/M_ctr_q_15_0
-    SLICE_X13Y18.C       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/button_cond2/out2
-    SLICE_X13Y18.B4      net (fanout=3)        0.367   myState/bttnpress/out1_0
-    SLICE_X13Y18.B       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/M_button_cond2_out_inv1
-    SLICE_X18Y16.CE      net (fanout=5)        1.044   myState/bttnpress/M_button_cond2_out_inv
-    SLICE_X18Y16.CLK     Tceck                 0.291   myState/M_ctr_q_3_1
-                                                       myState/bttnpress/button_cond2/M_ctr_q_3
-    -------------------------------------------------  ---------------------------
-    Total                                      4.158ns (1.285ns logic, 2.873ns route)
-                                                       (30.9% logic, 69.1% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.801ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond2/M_ctr_q_15 (FF)
-  Destination:          myState/bttnpress/button_cond2/M_ctr_q_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.156ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.008ns (0.196 - 0.204)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond2/M_ctr_q_15 to myState/bttnpress/button_cond2/M_ctr_q_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y19.DQ      Tcko                  0.476   myState/M_ctr_q_15_0
-                                                       myState/bttnpress/button_cond2/M_ctr_q_15
-    SLICE_X13Y18.C2      net (fanout=3)        1.462   myState/M_ctr_q_15_0
-    SLICE_X13Y18.C       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/button_cond2/out2
-    SLICE_X13Y18.B4      net (fanout=3)        0.367   myState/bttnpress/out1_0
-    SLICE_X13Y18.B       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/M_button_cond2_out_inv1
-    SLICE_X18Y16.CE      net (fanout=5)        1.044   myState/bttnpress/M_button_cond2_out_inv
-    SLICE_X18Y16.CLK     Tceck                 0.289   myState/M_ctr_q_3_1
-                                                       myState/bttnpress/button_cond2/M_ctr_q_2
-    -------------------------------------------------  ---------------------------
-    Total                                      4.156ns (1.283ns logic, 2.873ns route)
-                                                       (30.9% logic, 69.1% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.802ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.175ns (Levels of Logic = 2)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X4Y28.B6       net (fanout=29)       1.936   M_myState_startbutt
-    SLICE_X4Y28.B        Tilo                  0.254   myState/mainState/mypropogater/randomizer/M_numb_gen_num[2]
-                                                       myState/mainState/mypropogater/rowCtr/Mcount_M_ctr_q_val1_1
-    SLICE_X8Y31.B3       net (fanout=18)       1.121   myState/mainState/mypropogater/Mcount_M_ctr_q_val1
-    SLICE_X8Y31.CLK      Tas                   0.339   myState/mainState/mypropogater/randomizer/M_clk_gen_num[2]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/Mmux_M_w_d121
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1
-    -------------------------------------------------  ---------------------------
-    Total                                      4.175ns (1.118ns logic, 3.057ns route)
-                                                       (26.8% logic, 73.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.805ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.172ns (Levels of Logic = 1)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y31.CE       net (fanout=10)       0.924   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y31.CLK      Tceck                 0.313   myState/mainState/mypropogater/randomizer/M_clk_gen_num[2]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_0
-    -------------------------------------------------  ---------------------------
-    Total                                      4.172ns (1.097ns logic, 3.075ns route)
-                                                       (26.3% logic, 73.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.812ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_5 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.164ns (Levels of Logic = 1)
-  Clock Path Skew:      0.011ns (0.630 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_5
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y30.CE       net (fanout=10)       0.916   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y30.CLK      Tceck                 0.313   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[19]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_5
-    -------------------------------------------------  ---------------------------
-    Total                                      4.164ns (1.097ns logic, 3.067ns route)
-                                                       (26.3% logic, 73.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.814ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_8 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.144ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.007ns (0.195 - 0.202)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_8
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y18.CE      net (fanout=5)        0.782   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y18.CLK     Tceck                 0.314   myState/M_ctr_q_11_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_8
-    -------------------------------------------------  ---------------------------
-    Total                                      4.144ns (1.299ns logic, 2.845ns route)
-                                                       (31.3% logic, 68.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.819ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond2/M_ctr_q_15 (FF)
-  Destination:          myState/bttnpress/button_cond2/M_ctr_q_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.138ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.008ns (0.196 - 0.204)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond2/M_ctr_q_15 to myState/bttnpress/button_cond2/M_ctr_q_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y19.DQ      Tcko                  0.476   myState/M_ctr_q_15_0
-                                                       myState/bttnpress/button_cond2/M_ctr_q_15
-    SLICE_X13Y18.C2      net (fanout=3)        1.462   myState/M_ctr_q_15_0
-    SLICE_X13Y18.C       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/button_cond2/out2
-    SLICE_X13Y18.B4      net (fanout=3)        0.367   myState/bttnpress/out1_0
-    SLICE_X13Y18.B       Tilo                  0.259   myState/bttnpress/M_left_q_0
-                                                       myState/bttnpress/M_button_cond2_out_inv1
-    SLICE_X18Y16.CE      net (fanout=5)        1.044   myState/bttnpress/M_button_cond2_out_inv
-    SLICE_X18Y16.CLK     Tceck                 0.271   myState/M_ctr_q_3_1
-                                                       myState/bttnpress/button_cond2/M_ctr_q_1
-    -------------------------------------------------  ---------------------------
-    Total                                      4.138ns (1.265ns logic, 2.873ns route)
-                                                       (30.6% logic, 69.4% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.828ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.149ns (Levels of Logic = 2)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X4Y28.B6       net (fanout=29)       1.936   M_myState_startbutt
-    SLICE_X4Y28.B        Tilo                  0.254   myState/mainState/mypropogater/randomizer/M_numb_gen_num[2]
-                                                       myState/mainState/mypropogater/rowCtr/Mcount_M_ctr_q_val1_1
-    SLICE_X9Y31.A3       net (fanout=18)       1.061   myState/mainState/mypropogater/Mcount_M_ctr_q_val1
-    SLICE_X9Y31.CLK      Tas                   0.373   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[20]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/Mmux_M_w_d131
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_20
-    -------------------------------------------------  ---------------------------
-    Total                                      4.149ns (1.152ns logic, 2.997ns route)
-                                                       (27.8% logic, 72.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.837ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_11 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.121ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.007ns (0.195 - 0.202)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_11
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y18.CE      net (fanout=5)        0.782   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y18.CLK     Tceck                 0.291   myState/M_ctr_q_11_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_11
-    -------------------------------------------------  ---------------------------
-    Total                                      4.121ns (1.276ns logic, 2.845ns route)
-                                                       (31.0% logic, 69.0% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.839ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_10 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.119ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.007ns (0.195 - 0.202)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_10
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y18.CE      net (fanout=5)        0.782   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y18.CLK     Tceck                 0.289   myState/M_ctr_q_11_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_10
-    -------------------------------------------------  ---------------------------
-    Total                                      4.119ns (1.274ns logic, 2.845ns route)
-                                                       (30.9% logic, 69.1% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.846ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_16 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.119ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_19 to myState/bttnpress/button_cond3/M_ctr_q_16
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.DQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    SLICE_X12Y17.D2      net (fanout=3)        1.245   myState/M_ctr_q_19_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.314   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_16
-    -------------------------------------------------  ---------------------------
-    Total                                      4.119ns (1.299ns logic, 2.820ns route)
-                                                       (31.5% logic, 68.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.849ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.128ns (Levels of Logic = 1)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y31.CE       net (fanout=10)       0.924   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y31.CLK      Tceck                 0.269   myState/mainState/mypropogater/randomizer/M_clk_gen_num[2]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_2
-    -------------------------------------------------  ---------------------------
-    Total                                      4.128ns (1.053ns logic, 3.075ns route)
-                                                       (25.5% logic, 74.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.856ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_16 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.120ns (Levels of Logic = 1)
-  Clock Path Skew:      0.011ns (0.630 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_16
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y30.CE       net (fanout=10)       0.916   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y30.CLK      Tceck                 0.269   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[19]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_16
-    -------------------------------------------------  ---------------------------
-    Total                                      4.120ns (1.053ns logic, 3.067ns route)
-                                                       (25.6% logic, 74.4% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.857ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.101ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.007ns (0.195 - 0.202)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_17 to myState/bttnpress/button_cond3/M_ctr_q_9
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.BQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    SLICE_X12Y17.D1      net (fanout=3)        1.489   myState/M_ctr_q_17_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y18.CE      net (fanout=5)        0.782   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y18.CLK     Tceck                 0.271   myState/M_ctr_q_11_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_9
-    -------------------------------------------------  ---------------------------
-    Total                                      4.101ns (1.256ns logic, 2.845ns route)
-                                                       (30.6% logic, 69.4% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.859ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_19 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.117ns (Levels of Logic = 1)
-  Clock Path Skew:      0.011ns (0.630 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_19
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y30.CE       net (fanout=10)       0.916   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y30.CLK      Tceck                 0.266   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[19]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_19
-    -------------------------------------------------  ---------------------------
-    Total                                      4.117ns (1.050ns logic, 3.067ns route)
-                                                       (25.5% logic, 74.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.865ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.112ns (Levels of Logic = 1)
-  Clock Path Skew:      0.012ns (0.631 - 0.619)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y31.CE       net (fanout=10)       0.924   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y31.CLK      Tceck                 0.253   myState/mainState/mypropogater/randomizer/M_clk_gen_num[2]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_1
-    -------------------------------------------------  ---------------------------
-    Total                                      4.112ns (1.037ns logic, 3.075ns route)
-                                                       (25.2% logic, 74.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.869ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.096ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_19 to myState/bttnpress/button_cond3/M_ctr_q_19
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.DQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    SLICE_X12Y17.D2      net (fanout=3)        1.245   myState/M_ctr_q_19_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.291   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    -------------------------------------------------  ---------------------------
-    Total                                      4.096ns (1.276ns logic, 2.820ns route)
-                                                       (31.2% logic, 68.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.871ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_18 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.094ns (Levels of Logic = 2)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_19 to myState/bttnpress/button_cond3/M_ctr_q_18
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y20.DQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    SLICE_X12Y17.D2      net (fanout=3)        1.245   myState/M_ctr_q_19_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.289   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_18
-    -------------------------------------------------  ---------------------------
-    Total                                      4.094ns (1.274ns logic, 2.820ns route)
+    Total                                      5.023ns (1.563ns logic, 3.460ns route)
                                                        (31.1% logic, 68.9% route)
 
 --------------------------------------------------------------------------------
-Slack:                  15.872ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13 (FF)
+Slack:                  14.966ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_0 (FF)
+  Destination:          myState/scoreSum/M_regs_q_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.104ns (Levels of Logic = 1)
-  Clock Path Skew:      0.011ns (0.630 - 0.619)
+  Data Path Delay:      4.985ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.014ns (0.322 - 0.336)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -952,28 +85,854 @@ Slack:                  15.872ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_0 to myState/scoreSum/M_regs_q_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X5Y28.C3       net (fanout=29)       2.151   M_myState_startbutt
-    SLICE_X5Y28.C        Tilo                  0.259   myState/mainState/mypropogater/randomizer/numb_gen/M_w_q[21]
-                                                       myState/mainState/mypropogater/randomizer/numb_gen/_n0042_inv1
-    SLICE_X8Y30.CE       net (fanout=10)       0.916   myState/mainState/mypropogater/randomizer/_n0042_inv
-    SLICE_X8Y30.CLK      Tceck                 0.253   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[19]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13
+    SLICE_X10Y36.AQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_0
+    SLICE_X11Y47.A2      net (fanout=12)       2.220   M_myState_rowresult[0]
+    SLICE_X11Y47.A       Tilo                  0.259   myState/M_myalu_a[0]
+                                                       myState/Mmux_M_myalu_a11
+    SLICE_X10Y45.AX      net (fanout=1)        0.490   myState/M_myalu_a[0]
+    SLICE_X10Y45.CMUX    Taxc                  0.410   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y45.D2      net (fanout=1)        0.757   myState/M_myalu_alu[2]
+    SLICE_X11Y45.CLK     Tas                   0.373   M_myState_totalScore[2]
+                                                       myState/Mmux_M_scoreSum_data31
+                                                       myState/scoreSum/M_regs_q_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.104ns (1.037ns logic, 3.067ns route)
-                                                       (25.3% logic, 74.7% route)
+    Total                                      4.985ns (1.518ns logic, 3.467ns route)
+                                                       (30.5% logic, 69.5% route)
 
 --------------------------------------------------------------------------------
-Slack:                  15.889ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
+Slack:                  15.188ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_0 (FF)
+  Destination:          myState/scoreSum/M_regs_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.763ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.014ns (0.322 - 0.336)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_0 to myState/scoreSum/M_regs_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y36.AQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_0
+    SLICE_X11Y47.A2      net (fanout=12)       2.220   M_myState_rowresult[0]
+    SLICE_X11Y47.A       Tilo                  0.259   myState/M_myalu_a[0]
+                                                       myState/Mmux_M_myalu_a11
+    SLICE_X10Y45.AX      net (fanout=1)        0.490   myState/M_myalu_a[0]
+    SLICE_X10Y45.COUT    Taxcy                 0.281   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X10Y46.CIN     net (fanout=1)        0.003   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+    SLICE_X10Y46.AMUX    Tcina                 0.210   myState/M_myalu_alu[4]
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_xor<4>
+    SLICE_X11Y45.B4      net (fanout=1)        0.560   myState/M_myalu_alu[4]
+    SLICE_X11Y45.CLK     Tas                   0.264   M_myState_totalScore[2]
+                                                       myState/Mmux_M_scoreSum_data51
+                                                       myState/scoreSum/M_regs_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      4.763ns (1.490ns logic, 3.273ns route)
+                                                       (31.3% logic, 68.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.279ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_0 (FF)
+  Destination:          myState/scoreSum/M_regs_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.672ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.014ns (0.322 - 0.336)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_0 to myState/scoreSum/M_regs_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y36.AQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_0
+    SLICE_X11Y47.A2      net (fanout=12)       2.220   M_myState_rowresult[0]
+    SLICE_X11Y47.A       Tilo                  0.259   myState/M_myalu_a[0]
+                                                       myState/Mmux_M_myalu_a11
+    SLICE_X10Y45.AX      net (fanout=1)        0.490   myState/M_myalu_a[0]
+    SLICE_X10Y45.BMUX    Taxb                  0.310   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y45.C1      net (fanout=1)        0.544   myState/M_myalu_alu[1]
+    SLICE_X11Y45.CLK     Tas                   0.373   M_myState_totalScore[2]
+                                                       myState/Mmux_M_scoreSum_data21
+                                                       myState/scoreSum/M_regs_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.672ns (1.418ns logic, 3.254ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.293ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_16 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.653ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.019ns (0.284 - 0.303)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y24.CE      net (fanout=5)        0.864   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y24.CLK     Tceck                 0.313   myState/M_ctr_q_19_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_16
+    -------------------------------------------------  ---------------------------
+    Total                                      4.653ns (1.356ns logic, 3.297ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.337ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_18 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.609ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.019ns (0.284 - 0.303)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y24.CE      net (fanout=5)        0.864   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y24.CLK     Tceck                 0.269   myState/M_ctr_q_19_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.609ns (1.312ns logic, 3.297ns route)
+                                                       (28.5% logic, 71.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.340ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.619ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.006ns (0.191 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y20.CE      net (fanout=5)        0.830   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y20.CLK     Tceck                 0.313   myState/M_ctr_q_3_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.619ns (1.356ns logic, 3.263ns route)
+                                                       (29.4% logic, 70.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.340ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_19 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.606ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.019ns (0.284 - 0.303)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y24.CE      net (fanout=5)        0.864   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y24.CLK     Tceck                 0.266   myState/M_ctr_q_19_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.606ns (1.309ns logic, 3.297ns route)
+                                                       (28.4% logic, 71.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.353ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
   Destination:          myState/bttnpress/button_cond3/M_ctr_q_17 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.076ns (Levels of Logic = 2)
+  Data Path Delay:      4.593ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.019ns (0.284 - 0.303)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y24.CE      net (fanout=5)        0.864   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y24.CLK     Tceck                 0.253   myState/M_ctr_q_19_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_17
+    -------------------------------------------------  ---------------------------
+    Total                                      4.593ns (1.296ns logic, 3.297ns route)
+                                                       (28.2% logic, 71.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.384ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.575ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.006ns (0.191 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y20.CE      net (fanout=5)        0.830   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y20.CLK     Tceck                 0.269   myState/M_ctr_q_3_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.575ns (1.312ns logic, 3.263ns route)
+                                                       (28.7% logic, 71.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.387ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.572ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.006ns (0.191 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y20.CE      net (fanout=5)        0.830   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y20.CLK     Tceck                 0.266   myState/M_ctr_q_3_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.572ns (1.309ns logic, 3.263ns route)
+                                                       (28.6% logic, 71.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.400ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.559ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.006ns (0.191 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y20.CE      net (fanout=5)        0.830   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y20.CLK     Tceck                 0.253   myState/M_ctr_q_3_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.559ns (1.296ns logic, 3.263ns route)
+                                                       (28.4% logic, 71.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.517ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_12 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.435ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.013ns (0.184 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y23.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y23.CLK     Tceck                 0.313   myState/M_ctr_q_15_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_12
+    -------------------------------------------------  ---------------------------
+    Total                                      4.435ns (1.356ns logic, 3.079ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.521ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.435ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.009ns (0.188 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y21.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y21.CLK     Tceck                 0.313   myState/M_ctr_q_7_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      4.435ns (1.356ns logic, 3.079ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.561ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_14 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.391ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.013ns (0.184 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y23.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y23.CLK     Tceck                 0.269   myState/M_ctr_q_15_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_14
+    -------------------------------------------------  ---------------------------
+    Total                                      4.391ns (1.312ns logic, 3.079ns route)
+                                                       (29.9% logic, 70.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.564ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_15 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.388ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.013ns (0.184 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y23.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y23.CLK     Tceck                 0.266   myState/M_ctr_q_15_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_15
+    -------------------------------------------------  ---------------------------
+    Total                                      4.388ns (1.309ns logic, 3.079ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.565ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.391ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.009ns (0.188 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y21.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y21.CLK     Tceck                 0.269   myState/M_ctr_q_7_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      4.391ns (1.312ns logic, 3.079ns route)
+                                                       (29.9% logic, 70.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.568ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.388ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.009ns (0.188 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y21.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y21.CLK     Tceck                 0.266   myState/M_ctr_q_7_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      4.388ns (1.309ns logic, 3.079ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.577ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_13 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.375ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.013ns (0.184 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y23.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y23.CLK     Tceck                 0.253   myState/M_ctr_q_15_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_13
+    -------------------------------------------------  ---------------------------
+    Total                                      4.375ns (1.296ns logic, 3.079ns route)
+                                                       (29.6% logic, 70.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.581ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.375ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.009ns (0.188 - 0.197)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y21.CE      net (fanout=5)        0.646   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y21.CLK     Tceck                 0.253   myState/M_ctr_q_7_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      4.375ns (1.296ns logic, 3.079ns route)
+                                                       (29.6% logic, 70.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.730ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond/sync/M_pipe_q_1 (FF)
+  Destination:          myState/bttnpress/button_cond/M_ctr_q_19 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.171ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.064ns (0.617 - 0.681)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond/sync/M_pipe_q_1 to myState/bttnpress/button_cond/M_ctr_q_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y11.CQ      Tcko                  0.525   myState/bttnpress/button_cond/M_sync_out
+                                                       myState/bttnpress/button_cond/sync/M_pipe_q_1
+    SLICE_X11Y18.A3      net (fanout=1)        1.569   myState/bttnpress/button_cond/M_sync_out
+    SLICE_X11Y18.A       Tilo                  0.259   myState/bttnpress/button_cond/M_sync_out_inv
+                                                       myState/bttnpress/button_cond/M_sync_out_inv1_INV_0
+    SLICE_X8Y23.SR       net (fanout=5)        1.348   myState/bttnpress/button_cond/M_sync_out_inv
+    SLICE_X8Y23.CLK      Tsrck                 0.470   myState/M_ctr_q_19
+                                                       myState/bttnpress/button_cond/M_ctr_q_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.171ns (1.254ns logic, 2.917ns route)
+                                                       (30.1% logic, 69.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.733ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_0 (FF)
+  Destination:          myState/scoreSum/M_regs_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.217ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.015ns (0.321 - 0.336)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_0 to myState/scoreSum/M_regs_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y36.AQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_0
+    SLICE_X10Y45.D1      net (fanout=12)       2.172   M_myState_rowresult[0]
+    SLICE_X10Y45.DMUX    Topdd                 0.446   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/Mmux_M_myalu_b41
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y44.A2      net (fanout=1)        0.750   myState/M_myalu_alu[3]
+    SLICE_X11Y44.CLK     Tas                   0.373   M_myState_totalScore[3]
+                                                       myState/Mmux_M_scoreSum_data41
+                                                       myState/scoreSum/M_regs_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.217ns (1.295ns logic, 2.922ns route)
+                                                       (30.7% logic, 69.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.737ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_1 (FF)
+  Destination:          myState/scoreSum/M_regs_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.213ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.015ns (0.321 - 0.336)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_1 to myState/scoreSum/M_regs_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y36.CQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_1
+    SLICE_X10Y45.C2      net (fanout=12)       2.121   M_myState_rowresult[1]
+    SLICE_X10Y45.DMUX    Topcd                 0.493   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/Mmux_M_myalu_b31
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y44.A2      net (fanout=1)        0.750   myState/M_myalu_alu[3]
+    SLICE_X11Y44.CLK     Tas                   0.373   M_myState_totalScore[3]
+                                                       myState/Mmux_M_scoreSum_data41
+                                                       myState/scoreSum/M_regs_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.213ns (1.342ns logic, 2.871ns route)
+                                                       (31.9% logic, 68.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.739ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond/sync/M_pipe_q_1 (FF)
+  Destination:          myState/bttnpress/button_cond/M_ctr_q_18 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.162ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.064ns (0.617 - 0.681)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond/sync/M_pipe_q_1 to myState/bttnpress/button_cond/M_ctr_q_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y11.CQ      Tcko                  0.525   myState/bttnpress/button_cond/M_sync_out
+                                                       myState/bttnpress/button_cond/sync/M_pipe_q_1
+    SLICE_X11Y18.A3      net (fanout=1)        1.569   myState/bttnpress/button_cond/M_sync_out
+    SLICE_X11Y18.A       Tilo                  0.259   myState/bttnpress/button_cond/M_sync_out_inv
+                                                       myState/bttnpress/button_cond/M_sync_out_inv1_INV_0
+    SLICE_X8Y23.SR       net (fanout=5)        1.348   myState/bttnpress/button_cond/M_sync_out_inv
+    SLICE_X8Y23.CLK      Tsrck                 0.461   myState/M_ctr_q_19
+                                                       myState/bttnpress/button_cond/M_ctr_q_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.162ns (1.245ns logic, 2.917ns route)
+                                                       (29.9% logic, 70.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.750ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond/sync/M_pipe_q_1 (FF)
+  Destination:          myState/bttnpress/button_cond/M_ctr_q_17 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.151ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.064ns (0.617 - 0.681)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond/sync/M_pipe_q_1 to myState/bttnpress/button_cond/M_ctr_q_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y11.CQ      Tcko                  0.525   myState/bttnpress/button_cond/M_sync_out
+                                                       myState/bttnpress/button_cond/sync/M_pipe_q_1
+    SLICE_X11Y18.A3      net (fanout=1)        1.569   myState/bttnpress/button_cond/M_sync_out
+    SLICE_X11Y18.A       Tilo                  0.259   myState/bttnpress/button_cond/M_sync_out_inv
+                                                       myState/bttnpress/button_cond/M_sync_out_inv1_INV_0
+    SLICE_X8Y23.SR       net (fanout=5)        1.348   myState/bttnpress/button_cond/M_sync_out_inv
+    SLICE_X8Y23.CLK      Tsrck                 0.450   myState/M_ctr_q_19
+                                                       myState/bttnpress/button_cond/M_ctr_q_17
+    -------------------------------------------------  ---------------------------
+    Total                                      4.151ns (1.234ns logic, 2.917ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.753ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.212ns (Levels of Logic = 2)
   Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
@@ -985,68 +944,32 @@ Slack:                  15.889ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_19 to myState/bttnpress/button_cond3/M_ctr_q_17
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_8
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X14Y20.DQ      Tcko                  0.476   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_19
-    SLICE_X12Y17.D2      net (fanout=3)        1.245   myState/M_ctr_q_19_1
-    SLICE_X12Y17.D       Tilo                  0.254   myState/M_ctr_q_0_2
-                                                       myState/bttnpress/button_cond3/out2
-    SLICE_X12Y16.C3      net (fanout=3)        0.574   myState/bttnpress/out1_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
-                                                       myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.271   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_17
-    -------------------------------------------------  ---------------------------
-    Total                                      4.076ns (1.256ns logic, 2.820ns route)
-                                                       (30.8% logic, 69.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  15.889ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/button_cond3/M_ctr_q_12 (FF)
-  Destination:          myState/bttnpress/button_cond3/M_ctr_q_16 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.063ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.013ns (0.191 - 0.204)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_12 to myState/bttnpress/button_cond3/M_ctr_q_16
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y19.AQ      Tcko                  0.476   myState/M_ctr_q_15_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_12
-    SLICE_X12Y18.D2      net (fanout=3)        1.031   myState/M_ctr_q_12_1
-    SLICE_X12Y18.D       Tilo                  0.254   myState/bttnpress/M_last_q_1
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
                                                        myState/bttnpress/button_cond3/out3
-    SLICE_X12Y16.C2      net (fanout=3)        0.732   myState/bttnpress/out2_1
-    SLICE_X12Y16.C       Tilo                  0.255   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
                                                        myState/bttnpress/M_button_cond3_out_inv1
-    SLICE_X14Y20.CE      net (fanout=5)        1.001   myState/bttnpress/M_button_cond3_out_inv
-    SLICE_X14Y20.CLK     Tceck                 0.314   myState/M_ctr_q_19_1
-                                                       myState/bttnpress/button_cond3/M_ctr_q_16
+    SLICE_X16Y22.CE      net (fanout=5)        0.423   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y22.CLK     Tceck                 0.313   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_8
     -------------------------------------------------  ---------------------------
-    Total                                      4.063ns (1.299ns logic, 2.764ns route)
-                                                       (32.0% logic, 68.0% route)
+    Total                                      4.212ns (1.356ns logic, 2.856ns route)
+                                                       (32.2% logic, 67.8% route)
 
 --------------------------------------------------------------------------------
-Slack:                  15.907ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               myState/bttnpress/M_ctr_q_0 (FF)
-  Destination:          myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13 (FF)
+Slack:                  15.755ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/mainState/score/M_regs_q_1 (FF)
+  Destination:          myState/scoreSum/M_regs_q_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.069ns (Levels of Logic = 2)
-  Clock Path Skew:      0.011ns (0.630 - 0.619)
+  Data Path Delay:      4.196ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.014ns (0.322 - 0.336)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1057,22 +980,128 @@ Slack:                  15.907ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: myState/bttnpress/M_ctr_q_0 to myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13
+  Maximum Data Path at Slow Process Corner: myState/mainState/score/M_regs_q_1 to myState/scoreSum/M_regs_q_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y20.AQ      Tcko                  0.525   M_myState_startbutt
-                                                       myState/bttnpress/M_ctr_q_0
-    SLICE_X4Y28.B6       net (fanout=29)       1.936   M_myState_startbutt
-    SLICE_X4Y28.B        Tilo                  0.254   myState/mainState/mypropogater/randomizer/M_numb_gen_num[2]
-                                                       myState/mainState/mypropogater/rowCtr/Mcount_M_ctr_q_val1_1
-    SLICE_X8Y30.B4       net (fanout=18)       1.015   myState/mainState/mypropogater/Mcount_M_ctr_q_val1
-    SLICE_X8Y30.CLK      Tas                   0.339   myState/mainState/mypropogater/randomizer/clk_gen/M_w_q[19]
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/Mmux_M_w_d51
-                                                       myState/mainState/mypropogater/randomizer/clk_gen/M_w_q_13
+    SLICE_X10Y36.CQ      Tcko                  0.476   M_myState_rowresult[1]
+                                                       myState/mainState/score/M_regs_q_1
+    SLICE_X10Y45.C2      net (fanout=12)       2.121   M_myState_rowresult[1]
+    SLICE_X10Y45.CMUX    Topcc                 0.469   myState/myalu/Madd_n0127[8:0]_Madd_cy[3]
+                                                       myState/Mmux_M_myalu_b31
+                                                       myState/myalu/Madd_n0127[8:0]_Madd_cy<3>
+    SLICE_X11Y45.D2      net (fanout=1)        0.757   myState/M_myalu_alu[2]
+    SLICE_X11Y45.CLK     Tas                   0.373   M_myState_totalScore[2]
+                                                       myState/Mmux_M_scoreSum_data31
+                                                       myState/scoreSum/M_regs_q_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.069ns (1.118ns logic, 2.951ns route)
-                                                       (27.5% logic, 72.5% route)
+    Total                                      4.196ns (1.318ns logic, 2.878ns route)
+                                                       (31.4% logic, 68.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.772ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond/sync/M_pipe_q_1 (FF)
+  Destination:          myState/bttnpress/button_cond/M_ctr_q_16 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.129ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.064ns (0.617 - 0.681)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond/sync/M_pipe_q_1 to myState/bttnpress/button_cond/M_ctr_q_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y11.CQ      Tcko                  0.525   myState/bttnpress/button_cond/M_sync_out
+                                                       myState/bttnpress/button_cond/sync/M_pipe_q_1
+    SLICE_X11Y18.A3      net (fanout=1)        1.569   myState/bttnpress/button_cond/M_sync_out
+    SLICE_X11Y18.A       Tilo                  0.259   myState/bttnpress/button_cond/M_sync_out_inv
+                                                       myState/bttnpress/button_cond/M_sync_out_inv1_INV_0
+    SLICE_X8Y23.SR       net (fanout=5)        1.348   myState/bttnpress/button_cond/M_sync_out_inv
+    SLICE_X8Y23.CLK      Tsrck                 0.428   myState/M_ctr_q_19
+                                                       myState/bttnpress/button_cond/M_ctr_q_16
+    -------------------------------------------------  ---------------------------
+    Total                                      4.129ns (1.212ns logic, 2.917ns route)
+                                                       (29.4% logic, 70.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.797ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_10 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.168ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y22.CE      net (fanout=5)        0.423   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y22.CLK     Tceck                 0.269   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_10
+    -------------------------------------------------  ---------------------------
+    Total                                      4.168ns (1.312ns logic, 2.856ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.800ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myState/bttnpress/button_cond3/M_ctr_q_9 (FF)
+  Destination:          myState/bttnpress/button_cond3/M_ctr_q_11 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.165ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: myState/bttnpress/button_cond3/M_ctr_q_9 to myState/bttnpress/button_cond3/M_ctr_q_11
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y22.BQ      Tcko                  0.525   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_9
+    SLICE_X13Y23.D5      net (fanout=3)        1.713   myState/M_ctr_q_9_1
+    SLICE_X13Y23.D       Tilo                  0.259   myState/bttnpress/M_last_q_1
+                                                       myState/bttnpress/button_cond3/out3
+    SLICE_X13Y22.C2      net (fanout=2)        0.720   myState/bttnpress/out2_1
+    SLICE_X13Y22.C       Tilo                  0.259   myState/bttnpress/out1_1
+                                                       myState/bttnpress/M_button_cond3_out_inv1
+    SLICE_X16Y22.CE      net (fanout=5)        0.423   myState/bttnpress/M_button_cond3_out_inv
+    SLICE_X16Y22.CLK     Tceck                 0.266   myState/M_ctr_q_11_1
+                                                       myState/bttnpress/button_cond3/M_ctr_q_11
+    -------------------------------------------------  ---------------------------
+    Total                                      4.165ns (1.309ns logic, 2.856ns route)
+                                                       (31.4% logic, 68.6% route)
 
 --------------------------------------------------------------------------------
 
@@ -1091,7 +1120,7 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: myState/bttnpress/button_cond/M_sync_out/CLK
   Logical resource: myState/bttnpress/button_cond2/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X16Y9.CLK
+  Location pin: SLICE_X16Y11.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1099,7 +1128,7 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: myState/bttnpress/button_cond/M_sync_out/CLK
   Logical resource: myState/bttnpress/button_cond3/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X16Y9.CLK
+  Location pin: SLICE_X16Y11.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1107,31 +1136,39 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: myState/bttnpress/button_cond/M_sync_out/CLK
   Logical resource: myState/bttnpress/button_cond/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X16Y9.CLK
+  Location pin: SLICE_X16Y11.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/M_ctr_q_3_0/CLK
+  Physical resource: myState/M_ctr_q_3/CLK
+  Logical resource: myState/bttnpress/button_cond/M_ctr_q_0/CK
+  Location pin: SLICE_X8Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: myState/M_ctr_q_3/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_1/CK
-  Location pin: SLICE_X16Y16.CLK
+  Location pin: SLICE_X8Y19.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/M_ctr_q_3_0/CLK
+  Physical resource: myState/M_ctr_q_3/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_2/CK
-  Location pin: SLICE_X16Y16.CLK
+  Location pin: SLICE_X8Y19.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/M_ctr_q_3_0/CLK
+  Physical resource: myState/M_ctr_q_3/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_3/CK
-  Location pin: SLICE_X16Y16.CLK
+  Location pin: SLICE_X8Y19.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1139,7 +1176,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_7/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_4/CK
-  Location pin: SLICE_X16Y17.CLK
+  Location pin: SLICE_X8Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1147,7 +1184,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_7/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_5/CK
-  Location pin: SLICE_X16Y17.CLK
+  Location pin: SLICE_X8Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1155,7 +1192,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_7/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_6/CK
-  Location pin: SLICE_X16Y17.CLK
+  Location pin: SLICE_X8Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1163,7 +1200,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_7/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_7/CK
-  Location pin: SLICE_X16Y17.CLK
+  Location pin: SLICE_X8Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1171,7 +1208,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_11/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_8/CK
-  Location pin: SLICE_X16Y18.CLK
+  Location pin: SLICE_X8Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1179,7 +1216,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_11/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_9/CK
-  Location pin: SLICE_X16Y18.CLK
+  Location pin: SLICE_X8Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1187,7 +1224,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_11/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_10/CK
-  Location pin: SLICE_X16Y18.CLK
+  Location pin: SLICE_X8Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1195,7 +1232,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_11/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_11/CK
-  Location pin: SLICE_X16Y18.CLK
+  Location pin: SLICE_X8Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1203,7 +1240,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_15/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_12/CK
-  Location pin: SLICE_X16Y19.CLK
+  Location pin: SLICE_X8Y22.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1211,7 +1248,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_15/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_13/CK
-  Location pin: SLICE_X16Y19.CLK
+  Location pin: SLICE_X8Y22.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1219,7 +1256,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_15/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_14/CK
-  Location pin: SLICE_X16Y19.CLK
+  Location pin: SLICE_X8Y22.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1227,7 +1264,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_15/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_15/CK
-  Location pin: SLICE_X16Y19.CLK
+  Location pin: SLICE_X8Y22.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1235,7 +1272,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_19/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_16/CK
-  Location pin: SLICE_X16Y20.CLK
+  Location pin: SLICE_X8Y23.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1243,7 +1280,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_19/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_17/CK
-  Location pin: SLICE_X16Y20.CLK
+  Location pin: SLICE_X8Y23.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1251,7 +1288,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_19/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_18/CK
-  Location pin: SLICE_X16Y20.CLK
+  Location pin: SLICE_X8Y23.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1259,63 +1296,55 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: myState/M_ctr_q_19/CLK
   Logical resource: myState/bttnpress/button_cond/M_ctr_q_19/CK
+  Location pin: SLICE_X8Y23.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: myState/M_ctr_q_3_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_0/CK
   Location pin: SLICE_X16Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/bttnpress/edge_ctr/M_ctr_q[19]/CLK
-  Logical resource: myState/bttnpress/edge_ctr/M_ctr_q_18/CK
-  Location pin: SLICE_X16Y31.CLK
+  Physical resource: myState/M_ctr_q_3_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_1/CK
+  Location pin: SLICE_X16Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/bttnpress/edge_ctr/M_ctr_q[19]/CLK
-  Logical resource: myState/bttnpress/edge_ctr/M_ctr_q_19/CK
-  Location pin: SLICE_X16Y31.CLK
+  Physical resource: myState/M_ctr_q_3_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_2/CK
+  Location pin: SLICE_X16Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/bttnpress/M_edge_ctr_value/CLK
-  Logical resource: myState/bttnpress/edge_ctr/M_ctr_q_20/CK
-  Location pin: SLICE_X16Y32.CLK
+  Physical resource: myState/M_ctr_q_3_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_3/CK
+  Location pin: SLICE_X16Y20.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/bttnpress/M_edge_ctr_value/CLK
-  Logical resource: myState/bttnpress/edge_ctr/M_ctr_q_21/CK
-  Location pin: SLICE_X16Y32.CLK
+  Physical resource: myState/M_ctr_q_7_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_4/CK
+  Location pin: SLICE_X16Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: myState/bttnpress/M_edge_ctr_value/CLK
-  Logical resource: myState/bttnpress/edge_ctr/M_ctr_q_22/CK
-  Location pin: SLICE_X16Y32.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: M_stage_q_3_1/CLK
-  Logical resource: reset_cond3/M_stage_q_0/CK
-  Location pin: SLICE_X4Y21.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: M_stage_q_3_1/CLK
-  Logical resource: reset_cond3/M_stage_q_1/CK
-  Location pin: SLICE_X4Y21.CLK
+  Physical resource: myState/M_ctr_q_7_1/CLK
+  Logical resource: myState/bttnpress/button_cond3/M_ctr_q_5/CK
+  Location pin: SLICE_X16Y21.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 
@@ -1332,7 +1361,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.498|         |         |         |
+clk            |    5.073|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1341,23 +1370,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 3297 paths, 0 nets, and 736 connections
+Constraints cover 3420 paths, 0 nets, and 743 connections
 
 Design statistics:
-   Minimum period:   4.498ns{1}   (Maximum frequency: 222.321MHz)
+   Minimum period:   5.073ns{1}   (Maximum frequency: 197.122MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Fri Dec 08 05:00:23 2017 
+Analysis completed Fri Dec 08 08:40:25 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 276 MB
+Peak Memory Usage: 225 MB
 
 
 

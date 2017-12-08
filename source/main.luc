@@ -20,7 +20,7 @@ module main (
     output low1,
     output low2,
     output low3,
-    output rowOn[2]   //what is the row that is lit up
+    output rowOn[4]   //what is the row that is lit up
    // output propClk, 
   ) {
   

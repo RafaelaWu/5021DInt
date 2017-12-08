@@ -20,7 +20,7 @@ module state (
     output totalScore[8],
     output rowresult[2],
     output startbutt,
-    output scoreDisplay[4] //display to the seven seg
+    output scoreDisplay[4][4] //display to the seven seg
   ) {
 
   .clk(clk) {
